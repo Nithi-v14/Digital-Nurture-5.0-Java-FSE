@@ -1,0 +1,22 @@
+.course-card
+{
+    background: white;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,.1);
+    transition: .3s;
+}
+.course-card:hover
+{
+    transform: translateY(-5px);
+    /* box-shadow:0 15px 25px rgba(0,0,0,.2); */
+}
+button{
+    margin-top:15px;
+    background: #1976d2;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}

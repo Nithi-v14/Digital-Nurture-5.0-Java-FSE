@@ -1,0 +1,68 @@
+<div class="home-container">
+
+    <div class="hero-card">
+
+        <h1>{{ portalName }}</h1>
+
+        <p class="subtitle">
+            Build your future with Angular and Full Stack Development.
+        </p>
+
+        <div class="stats">
+
+            <div class="card">
+                <h2>12</h2>
+                <span>Courses</span>
+            </div>
+
+            <div class="card">
+                <h2>3</h2>
+                <span>Enrolled</span>
+            </div>
+
+            <div class="card">
+                <h2>8.0</h2>
+                <span>GPA</span>
+            </div>
+
+        </div>
+
+        <button
+            class="enroll-btn"
+            [disabled]="!isPortalActive"
+            (click)="onEnrollClick()">
+
+            Enroll Now
+
+        </button>
+
+        <p class="success-message">
+
+            {{ message }}
+
+        </p>
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                placeholder="Search Courses..."
+                [(ngModel)]="searchTerm">
+
+        </div>
+
+        <p class="search-result">
+
+            Searching for :
+
+            <strong>
+
+                {{ searchTerm }}
+
+            </strong>
+
+        </p>
+
+    </div>
+
+</div>

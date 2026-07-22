@@ -8,6 +8,7 @@ Nithish
 Hands-on Completed
 
 ✔ Hands-on 1
+✔ Hands-on 2
 
 Technologies
 

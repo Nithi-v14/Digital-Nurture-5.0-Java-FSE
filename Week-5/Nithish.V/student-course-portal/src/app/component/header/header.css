@@ -2,8 +2,8 @@ nav {
     display: flex;
     align-items: center;
     gap: 400px;
-    background: #1976d2;
-    color: white;
+    background:linear-gradient(135deg,pink,red);
+    color: blue;
     padding: 15px;
 }
 .nav-links {
@@ -17,6 +17,6 @@ nav a {
 }
 
 a {
-    color: white;
+    color: blue;
     text-decoration: none;
 }

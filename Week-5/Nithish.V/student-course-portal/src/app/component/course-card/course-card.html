@@ -1,12 +1,90 @@
-<div class="course-card">
+<div
+    class="course-card"
+
+    [ngClass]="cardClasses"
+
+    [ngStyle]="{'border-left':'8px solid ' + borderColor}">
+
     <h2>{{course.name}}</h2>
+
     <p>
-        <strong>Code: </strong>
+
+        <strong>Code :</strong>
+
         {{course.code}}
+
     </p>
-    <p>
-        <Strong>Credits: </Strong>
-        {{course.credits}}
-    </p>
-    <button (click)="enroll()">Enroll</button>
+
+   <p>
+
+    <strong>Credits :</strong>
+
+    {{ course.credits | creditLabel}}
+
+</p>
+
+    <div [ngSwitch]="course.gradeStatus">
+
+        <span
+            *ngSwitchCase="'passed'"
+            class="badge badge-success">
+
+            Passed
+
+        </span>
+
+        <span
+            *ngSwitchCase="'failed'"
+            class="badge badge-danger">
+
+            Failed
+
+        </span>
+
+        <span
+            *ngSwitchCase="'pending'"
+            class="badge badge-pending">
+
+            Pending
+
+        </span>
+
+    </div>
+
+    <button
+
+        (click)="enroll()">
+
+        Enroll
+
+    </button>
+
+    <button
+
+        (click)="toggleDetails()">
+
+        {{isExpanded ? 'Hide Details' : 'Show Details'}}
+
+    </button>
+
+    <div *ngIf="isExpanded" class="details">
+
+        <hr>
+
+        <p>
+
+            Course ID :
+
+            {{course.id}}
+
+        </p>
+
+        <p>
+
+            This course contains practical sessions, assignments and assessments.
+
+        </p>
+
+    </div>
+
 </div>

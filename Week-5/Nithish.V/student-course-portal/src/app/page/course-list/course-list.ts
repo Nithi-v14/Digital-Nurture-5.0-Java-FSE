@@ -1,44 +1,69 @@
-import { Component } from '@angular/core';
+import { Component,ChangeDetectorRef,inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {CourseCard} from '../../component/course-card/course-card';
+import { HighlightDirective } from '../../directives/highlight';
+import { CreditLabelPipe } from '../../pipes/credit-label-pipe';
 @Component({
   selector: 'app-course-list',
   standalone: true,
-  imports: [CommonModule,CourseCard],
+  imports: [CommonModule,CourseCard, HighlightDirective, CreditLabelPipe],
   templateUrl: './course-list.html',
   styleUrl: './course-list.css',
 })
 export class CourseList {
-  courses=[
-    {
-      id:1,
-      name:"Java Programming",
-      code:"JAVA101",
-      credits:3
-    },
-    {
-      id:2,
-      name:"Web Development",
-      code:"WEB201",
-      credits:4
-    },
-    {
-      id:3,
-      name:"Database Management",
-      code:"DB301",
-      credits:3
-    },
-    {
-      id:4,
-      name:"Data Structures",
-      code:"DS401",
-      credits:4
-    }
-  ];
-  selectedCourseId:number| null=null;
+   isLoading = true;
+   cdr=inject(ChangeDetectorRef);
+  selectedCourseId: number | null = null;
+
+  courses = [
+  {
+    id: 1,
+    name: 'Angular',
+    code: 'ANG101',
+    credits: 4,
+    gradeStatus: 'passed',
+    enrolled: true
+  },
+  {
+    id: 2,
+    name: 'React',
+    code: 'RCT102',
+    credits: 3,
+    gradeStatus: 'failed',
+    enrolled: false
+  },
+  {
+    id: 3,
+    name: 'Spring Boot',
+    code: 'SPR103',
+    credits: 4,
+    gradeStatus: 'pending',
+    enrolled: true
+  }
+];
   onEnroll(id:number)
   {
     console.log("Enroll requested for course id: ",id);
     this.selectedCourseId=id;
   }
+    ngOnInit(): void {
+// console.log("ngOnInit called");
+
+    setTimeout(() => {
+// console.log("Loading finished");
+      this.isLoading = false;
+      this.cdr.detectChanges();
+    }, 1500);
+
+  }
+
+  
+  /*
+trackBy improves performance by allowing Angular to identify
+list items using a unique ID instead of recreating all DOM
+elements whenever the array changes.
+*/
+trackByCourseId(index: number, course: any): number {
+  return course.id;
+}
 }

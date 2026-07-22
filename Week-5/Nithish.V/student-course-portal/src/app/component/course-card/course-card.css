@@ -1,22 +1,109 @@
-.course-card
-{
-    background: white;
-    border-radius:15px;
+.course-card{
+
+    background:white;
+
     padding:20px;
-    box-shadow:0 10px 20px rgba(0,0,0,.1);
-    transition: .3s;
+
+    margin:20px;
+
+    border-radius:15px;
+
+    transition:.4s;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.1);
+
 }
-.course-card:hover
-{
-    transform: translateY(-5px);
-    /* box-shadow:0 15px 25px rgba(0,0,0,.2); */
+
+.course-card:hover{
+
+    transform:translateY(-5px);
+
 }
+
+.card--enrolled{
+
+    background:#e8f5e9;
+
+}
+
+.card--full{
+
+    border-right:6px solid orange;
+
+}
+
+.expanded{
+
+    min-height:320px;
+
+}
+
 button{
+
     margin-top:15px;
-    background: #1976d2;
-    color:white;
+
+    margin-right:10px;
+
+    padding:10px 18px;
+
     border:none;
-    padding:10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
+
+    border-radius:8px;
+
+    background:#1976d2;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+button:hover{
+
+    background:#125aa0;
+
+}
+
+.details{
+
+    margin-top:20px;
+
+    padding:15px;
+
+    background:#f5f5f5;
+
+    border-radius:10px;
+
+}
+
+.badge{
+
+    display:inline-block;
+
+    margin-top:10px;
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    color:white;
+
+}
+
+.badge-success{
+
+    background:#2e7d32;
+
+}
+
+.badge-danger{
+
+    background:#d32f2f;
+
+}
+
+.badge-pending{
+
+    background:#757575;
+
 }

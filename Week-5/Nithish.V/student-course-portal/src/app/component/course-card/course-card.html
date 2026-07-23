@@ -1,3 +1,4 @@
+
 <div
     class="course-card"
 
@@ -5,7 +6,7 @@
 
     [ngStyle]="{'border-left':'8px solid ' + borderColor}">
 
-    <h2>{{course.name}}</h2>
+    <h2 >{{course.name}}</h2>
 
     <p>
 
@@ -52,12 +53,15 @@
     </div>
 
     <button
+    (click)="toggleEnrollment()">
 
-        (click)="enroll()">
+    {{
+        enrollmentService.isEnrolled(course.id)
+        ? 'Unenroll'
+        : 'Enroll'
+    }}
 
-        Enroll
-
-    </button>
+</button>
 
     <button
 

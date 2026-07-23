@@ -31,7 +31,7 @@
             <input
                 type="number"
                 formControlName="courseId">
-                <span class="error" *ngif="enrollForm.get('courseId')?.errors?.['noCourseCode']">Course code starting with XX is not allowed.</span>
+                <span class="error" *ngIf="enrollForm.get('courseId')?.errors?.['noCourseCode']">Course code starting with XX is not allowed.</span>
                 <h3>Additional Courses</h3>
 
 <button

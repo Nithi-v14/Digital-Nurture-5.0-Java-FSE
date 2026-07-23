@@ -5,14 +5,25 @@
 </p>
 
 <div *ngIf="!isLoading">
+
+    <h2>Course List</h2>
+
+    <button (click)="addSampleCourse()">
+        Add Course
+    </button>
+
     <div *ngIf="courses.length > 0; else noCourses">
 
-        <app-course-card
-    *ngFor="let course of courses; trackBy: trackByCourseId"
-    [course]="course"
-    appHighlight>
+        <div class="card-container">
 
-</app-course-card>
+            <app-course-card
+                *ngFor="let course of courses; trackBy: trackByCourseId"
+                [course]="course"
+                appHighlight>
+            </app-course-card>
+
+        </div>
+
     </div>
 
 </div>

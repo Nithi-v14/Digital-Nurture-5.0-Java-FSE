@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Input,Output,EventEmitter,OnChanges,OnInit,OnDestroy,SimpleChanges} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreditLabelPipe } from '../../pipes/credit-label-pipe';
+import { EnrollmentService } from '../../service/enrollment.service';
 @Component({
   selector: 'app-course-card',
   imports: [CommonModule,CreditLabelPipe],
@@ -10,6 +11,12 @@ import { CreditLabelPipe } from '../../pipes/credit-label-pipe';
   styleUrl: './course-card.css',
 })
 export class CourseCard implements OnChanges,OnInit,OnDestroy{
+  constructor(
+    public  enrollmentService: EnrollmentService
+){}
+// isEnrolled(): boolean {
+//     return this.enrollmentService.isEnrolled(this.course.id);
+// }
 @Input() 
 course!:{
   id:number;
@@ -75,5 +82,17 @@ toggleDetails() {
   this.isExpanded = !this.isExpanded;
 
 }
+toggleEnrollment(): void {
 
+    if (this.enrollmentService.isEnrolled(this.course.id)) {
+
+        this.enrollmentService.unenroll(this.course.id);
+
+    } else {
+
+        this.enrollmentService.enroll(this.course.id);
+
+    }
+
+}
 }

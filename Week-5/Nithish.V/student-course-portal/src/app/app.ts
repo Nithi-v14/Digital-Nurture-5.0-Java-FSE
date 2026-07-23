@@ -12,8 +12,6 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     RouterOutlet,
     Header,
-    Home,
-    CourseList
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'

@@ -9,6 +9,9 @@ Hands-on Completed
 
 ✔ Hands-on 1
 ✔ Hands-on 2
+✔ Hands-on 3
+✔ Hands-on 4
+✔ Hands-on 5
 
 Technologies
 

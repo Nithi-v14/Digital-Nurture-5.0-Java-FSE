@@ -1,15 +1,17 @@
+import { CourseService } from './../../service/course.service';
 import { Course } from './../../model/course-model';
-import { CourseService } from '../../service/course.service';
 import { Component,ChangeDetectorRef,inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {CourseCard} from '../../component/course-card/course-card';
 import { HighlightDirective } from '../../directives/highlight';
 import { CreditLabelPipe } from '../../pipes/credit-label-pipe';
 import { OnInit } from '@angular/core';
+import { Router,ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-course-list',
   standalone: true,
-  imports: [CommonModule,CourseCard, HighlightDirective],
+  imports: [CommonModule,CourseCard, HighlightDirective,FormsModule],
   templateUrl: './course-list.html',
   styleUrl: './course-list.css',
 })
@@ -18,8 +20,29 @@ export class CourseList implements OnInit {
    isLoading = true;
    cdr=inject(ChangeDetectorRef);
   selectedCourseId: number | null = null;
+  searchTerm=''
+  searchCourse(){
 
-  constructor(private courseService: CourseService) {}
+this.router.navigate(
+
+['courses'],
+
+{
+
+queryParams:{
+
+search:this.searchTerm
+
+}
+
+}
+
+);
+
+}
+  constructor(private courseService: CourseService,
+    private router: Router,
+    private route:ActivatedRoute) {}
   onEnroll(id:number)
   {
     console.log("Enroll requested for course id: ",id);
@@ -34,8 +57,13 @@ export class CourseList implements OnInit {
       this.isLoading = false;
       this.cdr.detectChanges();
     }, 1500);
+this.searchTerm =
 
-  }addSampleCourse(): void {
+this.route.snapshot
+.queryParamMap
+.get('search')?? '';
+  }
+  addSampleCourse(): void {
 
   this.courseService.addCourse({
 
@@ -63,5 +91,13 @@ elements whenever the array changes.
 */
 trackByCourseId(index: number, course: Course): number {
   return course.id;
+}
+goToCourse(course: Course){
+
+    this.router.navigate([
+        'courses',
+        course.id
+    ]);
+
 }
 }

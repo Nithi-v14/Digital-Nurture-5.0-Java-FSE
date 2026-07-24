@@ -8,7 +8,7 @@ import {
   FormControl,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { noCourseCode,simulateEmailCheck } from '../../validator/custom-validator/custom-validator';
+import { noCourseCode,simulateEmailCheck } from '../../../validator/custom-validator/custom-validator';
 @Component({
   selector: 'app-reactive-enrollment-form',
   standalone: true,

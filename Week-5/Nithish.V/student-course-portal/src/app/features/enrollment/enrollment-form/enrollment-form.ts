@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './enrollment-form.html',
   styleUrls: ['./enrollment-form.css']
 })
-export class EnrollmentFormComponent {
+export class EnrollmentForm {
 
   studentName = '';
 

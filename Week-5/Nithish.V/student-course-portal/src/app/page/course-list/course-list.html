@@ -6,27 +6,27 @@
 
 <div *ngIf="!isLoading">
 
+
     <h2>Course List</h2>
 
-    <button (click)="addSampleCourse()">
+    <button class="button-group" (click)="addSampleCourse()">
         Add Course
     </button>
-
+    <input [(ngModel)]="searchTerm"  (input)="searchCourse()">
     <div *ngIf="courses.length > 0; else noCourses">
 
         <div class="card-container">
-
+         
             <app-course-card
                 *ngFor="let course of courses; trackBy: trackByCourseId"
                 [course]="course"
-                appHighlight>
+                appHighlight (click)="goToCourse(course)">
             </app-course-card>
+            </div>
 
         </div>
 
     </div>
-
-</div>
 
 <ng-template #noCourses>
 

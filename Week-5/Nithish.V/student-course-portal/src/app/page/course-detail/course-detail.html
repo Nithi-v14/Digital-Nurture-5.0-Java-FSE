@@ -1,3 +1,14 @@
+<h3>Enrolled Students</h3>
+
+<ul>
+
+  <li *ngFor="let student of students">
+
+    {{ student.name }}
+
+  </li>
+
+</ul>
 <div *ngIf="course">
 
     <h1>{{ course.name }}</h1>

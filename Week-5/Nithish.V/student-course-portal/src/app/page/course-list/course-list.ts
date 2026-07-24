@@ -51,7 +51,53 @@ search:this.searchTerm
 
     ngOnInit(): void {
 // console.log("ngOnInit called");
-  this.courses = this.courseService.getCourses();
+  // this.courses = this.courseService.getCourses();
+  this.courseService.getCourses().subscribe({
+
+  next: courses => {
+
+    this.courses = courses;
+
+  },
+
+  error: error => {
+
+    this.errorMessage = error.message;
+
+    this.isLoading = false;
+
+  },
+
+  complete: () => {
+
+    this.isLoading = false;
+
+  }
+
+});
+  this.courseService.getCourses()
+
+    .subscribe({
+
+      next: courses => {
+
+        this.courses = courses;
+
+      },
+
+      error: err => {
+
+        this.errorMessage = err.message;
+
+      },
+
+      complete: () => {
+
+        this.isLoading = false;
+
+      }
+
+    });
     setTimeout(() => {
 // console.log("Loading finished");
       this.isLoading = false;
@@ -80,10 +126,29 @@ this.route.snapshot
     
   });
 // console.log(this.courseService.getCourses().length);
-  this.courses = this.courseService.getCourses();
+  this.courseService.getCourses().subscribe({
 
+  next: courses => {
+
+    this.courses = courses;
+
+  },
+
+  error: err => {
+
+    this.errorMessage = err.message;
+
+  },
+
+  complete: () => {
+
+    this.isLoading = false;
+
+  }
+
+});
 }
-  
+ errorMessage = ''; 
   /*
 trackBy improves performance by allowing Angular to identify
 list items using a unique ID instead of recreating all DOM

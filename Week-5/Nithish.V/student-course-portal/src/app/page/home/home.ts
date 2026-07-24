@@ -25,9 +25,13 @@ constructor(private courseService: CourseService) {}
   }
   courseCount=0;
   ngOnInit(): void {
-    this.courseCount = this.courseService.getCourses().length;
-    // Simulate loading data from a server
-    this.availableCourses = this.courseService.getCourses().length;
+    this.courseService.getCourses().subscribe(courses => {
+
+  this.courseCount = courses.length;
+
+  this.availableCourses = courses.length;
+
+});
 
     console.log("HomeComponent initialised — courses loaded");
 
@@ -38,7 +42,9 @@ constructor(private courseService: CourseService) {}
     console.log("HomeComponent destroyed");
 
   }
-  getCourseCount():number{
-    return this.courseService.getCourses().length;
-  }
+  getCourseCount(): number {
+
+  return this.courseCount;
+
+}
 }

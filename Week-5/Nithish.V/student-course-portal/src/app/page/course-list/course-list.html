@@ -23,7 +23,11 @@
                 appHighlight (click)="goToCourse(course)">
             </app-course-card>
             </div>
+<div *ngIf="errorMessage" class="error">
 
+  {{ errorMessage }}
+
+</div>
         </div>
 
     </div>

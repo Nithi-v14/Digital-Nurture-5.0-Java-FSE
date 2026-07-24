@@ -1,0 +1,63 @@
+{
+  "courses": [
+    {
+      "id": "1",
+      "name": "Angular",
+      "code": "ANG101",
+      "credits": 4,
+      "gradeStatus": "passed",
+      "enrolled": true
+    },
+    {
+      "id": "2",
+      "name": "Java",
+      "code": "JAVA201",
+      "credits": 3,
+      "gradeStatus": "pending",
+      "enrolled": false
+    },
+    {
+      "id": "3",
+      "name": "Spring Boot",
+      "code": "SPR301",
+      "credits": 4,
+      "gradeStatus": "passed",
+      "enrolled": true
+    },
+    {
+      "name": "Python",
+      "code": "PY101",
+      "credits": 3,
+      "gradeStatus": "pending",
+      "enrolled": false,
+      "id": "4F8ZshKXX_I"
+    },
+    {
+      "name": "Python",
+      "code": "PY101",
+      "credits": 3,
+      "gradeStatus": "pending",
+      "enrolled": false,
+      "id": "Qu59DVzIv-I"
+    },
+    {
+      "name": "Python",
+      "code": "PY101",
+      "credits": 3,
+      "gradeStatus": "pending",
+      "enrolled": false,
+      "id": "k5uVLH-pMQk"
+    },
+    {
+      "name": "Python",
+      "code": "PY101",
+      "credits": 3,
+      "gradeStatus": "pending",
+      "enrolled": false,
+      "id": "5NtIFIN2TOE"
+    }
+  ],
+  "students": [],
+  "enrollments": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}

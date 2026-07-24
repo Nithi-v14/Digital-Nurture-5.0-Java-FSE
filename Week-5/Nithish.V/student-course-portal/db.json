@@ -55,6 +55,70 @@
       "gradeStatus": "pending",
       "enrolled": false,
       "id": "5NtIFIN2TOE"
+    },
+    {
+      "name": "Python",
+      "code": "PY101",
+      "credits": 3,
+      "gradeStatus": "pending",
+      "enrolled": false,
+      "id": "LqKWn96SxQ0"
+    },
+    {
+      "name": "Python",
+      "code": "PY101",
+      "credits": 3,
+      "gradeStatus": "pending",
+      "enrolled": false,
+      "id": "65prqpv1_Cg"
+    },
+    {
+      "name": "Python",
+      "code": "PY101",
+      "credits": 3,
+      "gradeStatus": "pending",
+      "enrolled": false,
+      "id": "h4TqGOeD9Ck"
+    },
+    {
+      "name": "Python",
+      "code": "PY101",
+      "credits": 3,
+      "gradeStatus": "pending",
+      "enrolled": false,
+      "id": "u2x6soV7Lys"
+    },
+    {
+      "name": "Python",
+      "code": "PY101",
+      "credits": 3,
+      "gradeStatus": "pending",
+      "enrolled": false,
+      "id": "HZNqZnTXfuI"
+    },
+    {
+      "name": "Python",
+      "code": "PY101",
+      "credits": 3,
+      "gradeStatus": "pending",
+      "enrolled": false,
+      "id": "o7l--Hgg96c"
+    },
+    {
+      "name": "Python",
+      "code": "PY101",
+      "credits": 3,
+      "gradeStatus": "pending",
+      "enrolled": false,
+      "id": "vA2JXOElWKU"
+    },
+    {
+      "name": "Python",
+      "code": "PY101",
+      "credits": 3,
+      "gradeStatus": "pending",
+      "enrolled": false,
+      "id": "Z52nT5sVTos"
     }
   ],
   "students": [],

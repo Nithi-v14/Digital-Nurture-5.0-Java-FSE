@@ -9,7 +9,7 @@ import { CourseService } from '../../service/course.service';
   templateUrl: './course-summary-widget.html',
   styleUrls: ['./course-summary-widget.css']
 })
-export class CourseSummaryWidgetComponent implements OnInit {
+export class CourseSummaryWidget implements OnInit {
 
   totalCourses = 0;
 

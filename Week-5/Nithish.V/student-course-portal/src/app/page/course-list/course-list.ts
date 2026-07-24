@@ -8,6 +8,21 @@ import { CreditLabelPipe } from '../../pipes/credit-label-pipe';
 import { OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+
+import {
+
+selectAllCourses,
+
+selectCoursesLoading,
+
+selectCoursesError
+
+}from '../../store/course/course.selectors';
+
+import {loadCourses} from '../../store/course/course.actions';
 @Component({
   selector: 'app-course-list',
   standalone: true,
@@ -16,6 +31,11 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './course-list.css',
 })
 export class CourseList implements OnInit {
+  courses$!: Observable<Course[]>;
+
+loading$!: Observable<boolean>;
+
+error$!: Observable<string | null>;
   courses: Course[] = [];
    isLoading = true;
    cdr=inject(ChangeDetectorRef);
@@ -42,7 +62,8 @@ search:this.searchTerm
 }
   constructor(private courseService: CourseService,
     private router: Router,
-    private route:ActivatedRoute) {}
+    private route:ActivatedRoute, private store: Store) {}
+   
   onEnroll(id:number)
   {
     console.log("Enroll requested for course id: ",id);
@@ -52,29 +73,50 @@ search:this.searchTerm
     ngOnInit(): void {
 // console.log("ngOnInit called");
   // this.courses = this.courseService.getCourses();
-  this.courseService.getCourses().subscribe({
+//   this.courseService.getCourses.subscribe({
+//   next: courses => {
 
-  next: courses => {
+//     this.courses = courses;
 
-    this.courses = courses;
+//   },
 
-  },
+//   error: error => {
 
-  error: error => {
+//     this.errorMessage = error.message;
 
-    this.errorMessage = error.message;
+//     this.isLoading = false;
 
-    this.isLoading = false;
+//   },
 
-  },
+//   complete: () => {
 
-  complete: () => {
+//     this.isLoading = false;
+    
+//   },
+// });
+this.store.dispatch(
 
-    this.isLoading = false;
+loadCourses()
 
-  }
+);
 
-});
+this.courses$ =
+
+this.store.select(
+
+  selectAllCourses
+
+);
+
+this.loading$ =this.store.select(selectCoursesLoading);
+
+this.error$ =
+
+this.store.select(
+
+  selectCoursesError
+
+);
   this.courseService.getCourses()
 
     .subscribe({

@@ -21,10 +21,7 @@ export class App {
   showHome=true;
   constructor(
 
-public loadingService:
-
-LoadingService
-
+public loadingService:LoadingService
 ){}
   protected readonly title = signal('student-course-portal');
 }

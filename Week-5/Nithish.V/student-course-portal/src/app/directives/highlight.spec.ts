@@ -1,4 +1,4 @@
-import { Highlight } from './highlight';
+import { HighlightDirective } from './highlight';
 
 describe('Highlight', () => {
   it('should create an instance', () => {

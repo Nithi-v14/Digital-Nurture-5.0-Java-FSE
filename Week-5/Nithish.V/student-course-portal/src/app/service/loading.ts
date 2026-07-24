@@ -10,7 +10,6 @@ import { BehaviorSubject } from 'rxjs';
 export class LoadingService {
 
   isLoading$ =
-
     new BehaviorSubject<boolean>(false);
 
 }

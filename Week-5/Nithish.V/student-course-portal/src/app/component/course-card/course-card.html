@@ -53,16 +53,26 @@
     </div>
 
     <button
-    (click)="toggleEnrollment()">
 
-    {{
-        enrollmentService.isEnrolled(course.id)
-        ? 'Unenroll'
-        : 'Enroll'
-    }}
+(click)="toggleEnrollment(course.id)"
+
+>
+
+{{
+
+(enrolledIds$|async)?.includes(course.id)
+
+?
+
+'Unenroll'
+
+:
+
+'Enroll'
+
+}}
 
 </button>
-
     <button
 
         (click)="toggleDetails()">

@@ -3,6 +3,10 @@ import { Input,Output,EventEmitter,OnChanges,OnInit,OnDestroy,SimpleChanges} fro
 import { CommonModule } from '@angular/common';
 import { CreditLabelPipe } from '../../pipes/credit-label-pipe';
 import { EnrollmentService } from '../../service/enrollment.service';
+import { Store } from '@ngrx/store';
+import {enrollInCourse,unenrollFromCourse}from '../../store/enrollment/enrollment.actions';
+import { inject } from '@angular/core';
+import {selectEnrolledIds}from '../../store/enrollment/enrollment.selectors';
 @Component({
   selector: 'app-course-card',
   imports: [CommonModule,CreditLabelPipe],
@@ -14,26 +18,29 @@ export class CourseCard implements OnChanges,OnInit,OnDestroy{
   constructor(
     public  enrollmentService: EnrollmentService
 ){}
+  private store = inject(Store);
+enrolledIds$=this.store.select(selectEnrolledIds);
+
 // isEnrolled(): boolean {
-//     return this.enrollmentService.isEnrolled(this.course.id);
-// }
-@Input() 
-course!:{
-  id:number;
-  name:string;
-  code:string;
-  credits:number;
-  gradeStatus:string;
-  enrolled:boolean;
-}
-isExpanded = false;
-isEnrolled = false;
-@Output()
-enrollRequested=new EventEmitter<number>();
-ngOnInit(): void {
+  //     return this.enrollmentService.isEnrolled(this.course.id);
+  // }
+  @Input() 
+  course!:{
+    id:number;
+    name:string;
+    code:string;
+    credits:number;
+    gradeStatus:string;
+    enrolled:boolean;
+  }
+  isExpanded = false;
+  isEnrolled = false;
+  @Output()
+  enrollRequested=new EventEmitter<number>();
+  ngOnInit(): void {
     console.log("HomeComponent initialized - courses loaded");
-}
-ngOnChanges(changes: SimpleChanges): void {
+  }
+  ngOnChanges(changes: SimpleChanges): void {
 
     console.log("Course Input Changed");
 
@@ -82,17 +89,31 @@ toggleDetails() {
   this.isExpanded = !this.isExpanded;
 
 }
-toggleEnrollment(): void {
+toggleEnrollment(id:number){
 
-    if (this.enrollmentService.isEnrolled(this.course.id)) {
+this.store.dispatch(
 
-        this.enrollmentService.unenroll(this.course.id);
+enrollInCourse({
 
-    } else {
+courseId:id
 
-        this.enrollmentService.enroll(this.course.id);
+})
 
-    }
+);
 
 }
+removeEnrollment(id:number){
+
+this.store.dispatch(
+
+unenrollFromCourse({
+
+courseId:id
+
+})
+
+);
+
+}
+
 }

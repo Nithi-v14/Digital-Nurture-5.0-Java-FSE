@@ -1,17 +1,38 @@
 import { TestBed } from '@angular/core/testing';
-import { CanActivateFn } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot
+} from '@angular/router';
 
 import { unsavedChangesGuard } from './unsaved-changes-guard';
 
 describe('unsavedChangesGuard', () => {
-  const executeGuard: CanActivateFn = (...guardParameters) =>
-    TestBed.runInInjectionContext(() => unsavedChangesGuard(...guardParameters));
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
   });
 
-  it('should be created', () => {
-    expect(executeGuard).toBeTruthy();
+  it('should create', () => {
+
+    const component: any = {
+      canDeactivate: () => true
+    };
+
+    const currentRoute = {} as ActivatedRouteSnapshot;
+    const currentState = {} as RouterStateSnapshot;
+    const nextState = {} as RouterStateSnapshot;
+
+    const result = TestBed.runInInjectionContext(() =>
+      unsavedChangesGuard(
+        component,
+        currentRoute,
+        currentState,
+        nextState
+      )
+    );
+
+    expect(result).toBeTruthy();
+
   });
+
 });

@@ -1,4 +1,4 @@
-import { CourseEffects } from './course.effectseffects';
+import { CourseEffects } from './course.effects';
 
 describe('CourseEffects', () => {
   it('should create an instance', () => {

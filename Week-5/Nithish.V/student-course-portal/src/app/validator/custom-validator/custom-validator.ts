@@ -1,5 +1,4 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-
 export function noCourseCode(
   control: AbstractControl
 ): ValidationErrors | null {
